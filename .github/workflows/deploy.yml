@@ -25,6 +25,8 @@ jobs:
           mkdir site
           unzip -q "$(ls *.zip | head -1)" -d site
           ls -la site
+      - name: Contact email
+        run: sed -i 's/info@thedigitalvitamin\.com/info@gridironinnovations.com/g' site/*.html && grep -c 'info@gridironinnovations.com' site/index.html
       - name: Latest episodes
         run: python3 .github/latest.py site/latest.json || echo '{}' > site/latest.json
       - uses: actions/configure-pages@v5
