@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.d.outputs.page_url }}
+      url: ${{ steps.d1.outputs.page_url || steps.d2.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Unpack site
@@ -31,5 +31,12 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
-      - id: d
+      - id: d1
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before retry
+        if: steps.d1.outcome == 'failure'
+        run: sleep 30
+      - id: d2
+        if: steps.d1.outcome == 'failure'
         uses: actions/deploy-pages@v4
