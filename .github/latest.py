@@ -5,7 +5,7 @@ FEEDS = {
     'if': 'channel_id=UCSK7Wg-KdLMJKnKltVT7Agg',
     'og': 'channel_id=UC8zkG_RahgwuSPBHLIBGnAA',
     'golf': 'channel_id=UCjx2WMa005Avcttt9Uam-3Q',
-    'tws': 'channel_id=UCenLJNk7CNBMQhRczBYQb5Q',
+    'tws': 'playlist_id=PLVOYVYvVD9YI',
     'sfh': 'playlist_id=PLihC6TAafKWcDbvIlAMc87HibcOlDYf8c',
     'ipwt': 'playlist_id=PLbMWADTq4QL4',
 }
